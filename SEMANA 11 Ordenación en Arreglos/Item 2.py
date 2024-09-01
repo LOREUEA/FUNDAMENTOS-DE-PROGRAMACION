@@ -1,7 +1,7 @@
 # Matriz bidimensional 3 x 3
 matriz = [
-    [25, 10, 96],
-    [17, 2, 16],
+    [25, 100, 96],
+    [17, 72, 33],
     [13, 4,68]
 ]
 print("Matriz original")
@@ -17,9 +17,8 @@ def bubble_sort(fila):
                 fila[j], fila[j-1] = fila[j-1], fila[j]
 
 # Ordenar la primera las filas de la matriz
-bubble_sort(matriz[1])
+bubble_sort(matriz[0])
 
 print("Matriz con la primera fila ordenada")
 print(matriz)
 
-print(matriz)
