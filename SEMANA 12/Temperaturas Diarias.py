@@ -135,3 +135,72 @@ for i, ciudad in enumerate(temperaturas):
     for j, semana in enumerate(ciudad):
         promedio = calcular_promedio_temperaturas(ciudad, semana)
         print(f" Semana {j+1}: {promedio:.2f}grados")
+
+# Menú interactivo
+# Definimos las ciudades
+ciudades = ["Quito", "Cuenca", "Otavalo"]
+
+
+# Función para imprimir las temperaturas de la ciudad seleccionada
+def imprimir_temperaturas(ciudad):
+    for semana_indice, semana in enumerate(temperaturas[ciudad]):
+        print(f"\nSemana {semana_indice + 1}:")
+        for dia in semana:
+            print(f"  {dia['día']}: {dia['temp']} grados")
+
+
+# Menú para seleccionar la ciudad
+while True:
+    print("\nSeleccione la ciudad:")
+    print("1. Quito")
+    print("2. Cuenca")
+    print("3. Otavalo")
+    print("4. Salir")
+
+    opcion = input("Ingrese la opción deseada (1-4): ")
+
+    if opcion == "1":
+        ciudad = 0  # Quito
+        print(temperaturas)
+        print(ciudad)
+    elif opcion == "2":
+        ciudad = 1  # Cuenca
+        print(temperaturas)
+        print(ciudad)
+    elif opcion == "3":
+        ciudad = 2  # Otavalo
+        print(temperaturas)
+        print(ciudad)
+    elif opcion == "4":
+        print("Saliendo del programa...")
+        break
+    else:
+        print("No se encuentra la opción.")
+
+    # Continuar el ciclo
+    continue
+
+# Función para calcular la temperatura promedio de las ciudades en un período de tiempo
+def calcular_promedio(ciudad):
+    for semana_indice, semana in enumerate(ciudad, start=1):
+        suma = sum(dia["temp"] for dia in semana)
+        promedio = suma / len(semana)
+        print(f"Semana {semana_index}: Promedio de temperaturas: {promedio:}")
+
+#Menú interactivo 2
+while True:
+    print("\nSeleccione la ciudad:")
+    print("1. Quito")
+    print("2. Cuenca")
+    print("3. Otavalo")
+    print("4. Salir")
+
+    opcion = input("Ingrese la ciudad: ")
+    if opcion == "1":
+        calcular_promedio(temperaturas[0])
+    elif opcion == "2":
+        calcular_promedio(temperaturas[1])
+    elif opcion == "3":
+        calcular_promedio(temperaturas[2])
+    elif opcion == "4":
+        print("Saliendo del programa...")
