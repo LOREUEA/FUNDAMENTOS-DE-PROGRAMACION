@@ -121,48 +121,42 @@ temperaturas = [
     ]
 ]
 
-# Calcular el promedio de temperaturas por ciudades y semanas
-def calcular_promedio_temperaturas(ciudad, semana):
-    total_temp = sum(dia["temp"] for dia in semana)
-    promedio_temperatura = total_temp / len(semana)
-    return promedio_temperatura
+# Calcular el promedio por ciudades y semanas
+def calcular_promedio(temperaturas,ciudad_idx):
+    ciudad = temperaturas[ciudad_idx]
+    suma_temperaturas = 0
+    total_dias = 0
 
-#Imprimir promedio de temperaturas por ciudad y semana
-ciudades = ["Quito", "Cuenca", "Otavalo"]
+    #Recorrer semanas
+    for semana in ciudad:
+        for dia in semana:
+            suma_temperaturas += dia["temp"]
+            total_dias += 1
+    #Calcular promedio
+    promedio = suma_temperaturas / total_dias
+    return promedio
 
-for i, ciudad in enumerate(temperaturas):
-    print(f"Promedio de temperaturas para {ciudades[i]}")
-    for j, semana in enumerate(ciudad):
-        promedio = calcular_promedio_temperaturas(ciudad, semana)
-        print(f" Semana {j+1}: {promedio:.2f}grados")
+#Función para calcular el promedio de temperaturas por ciudad y semana
+#def calcular_promedio(ciudad)
+#   for semana_index, semana in enumerate(ciudad, start= 1:
+#       suma = sum(dia["temp] for dia in semana
+#       promedio = suma / len(semana)
+#       print(f"Semana {semana_index}: Promedio de temperatura: {promedio: .2f}")
 
 # Menú interactivo
 # Definimos las ciudades
-ciudades = ["Quito", "Cuenca", "Otavalo"]
-
-
-# Función para imprimir las temperaturas de la ciudad seleccionada
-def imprimir_temperaturas(ciudad):
-    for semana_indice, semana in enumerate(temperaturas[ciudad]):
-        print(f"\nSemana {semana_indice + 1}:")
-        for dia in semana:
-            print(f"  {dia['día']}: {dia['temp']} grados")
-
-
-# Menú para seleccionar la ciudad
 while True:
-    print("\nSeleccione la ciudad:")
-    print("1. Quito")
-    print("2. Cuenca")
-    print("3. Otavalo")
-    print("4. Salir")
+    print("Seleccione la ciudad")
+    print("1 - Quito")
+    print("2 - Cuenca")
+    print("3 - Otavalo")
+    print("4 - Salir")
 
     opcion = input("Ingrese la opción deseada (1-4): ")
-
     if opcion == "1":
-        ciudad = 0  # Quito
-        print(temperaturas)
-        print(ciudad)
+        promedio = calcular_promedio(temperaturas, ciudad_idx = 0)
+        print(f"Promedio = : {promedio:2f}")
+
     elif opcion == "2":
         ciudad = 1  # Cuenca
         print(temperaturas)
