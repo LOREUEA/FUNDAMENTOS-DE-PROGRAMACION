@@ -5,7 +5,7 @@ print(texto)
 #Crearemos lineas
 linea1= texto.write("Hola bellezas\n")
 linea2= texto.write("Quiero recordarles que son seres hermosos, valientes y superpoderosos\n")
-linea3= texto.write("Y que no se deben detener hasta que logren terminar la carrera y se sientan orgullosos de ustedes mismos.\n")
+linea3= texto.write("Que no se deben detener hasta que logren terminar la carrera y se sientan orgullosos de ustedes mismos.\n")
 linea4= texto.write("Y que todo el esfuerzo y sacrificio de hoy, es la recompensa de un mañana.\n")
 
 #Cerramos el archivo
